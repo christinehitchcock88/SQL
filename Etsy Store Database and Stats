@@ -1,0 +1,36 @@
+-Create an Etsy store database 
+
+CREATE TABLE etsy_store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, rating INTEGER, price INTEGER);
+
+INSERT INTO etsy_store VALUES (1, "notebooks", 60, 10, 12.50);
+INSERT INTO etsy_store VALUES (2, "stickers", 100, 9, 10.50);
+INSERT INTO etsy_store VALUES (3, "mugs", 30, 8, 13.50);
+INSERT INTO etsy_store VALUES (4, "pens", 80, 7, 2.50);
+INSERT INTO etsy_store VALUES (5, "books", 40, 7, 16);
+INSERT INTO etsy_store VALUES (6, "pins", 50, 8, 4.50);
+INSERT INTO etsy_store VALUES (7, "journals", 30, 8, 18.75);
+INSERT INTO etsy_store VALUES (8, "jewelry", 120, 9, 15.00);
+INSERT INTO etsy_store VALUES (9, "pencils", 110, 10, 1.75);
+INSERT INTO etsy_store VALUES (10, "water bottles", 30, 8, 15);
+INSERT INTO etsy_store VALUES (11, "picture frames", 45, 10, 10);
+INSERT INTO etsy_store VALUES (12, "hats", 35, 8, 15);
+INSERT INTO etsy_store VALUES (13, "phone covers", 40, 9, 22);
+INSERT INTO etsy_store VALUES (14, "shirts", 40, 7, 15.50);
+INSERT INTO etsy_store VALUES (15, "shoes", 35, 8, 25.00);
+
+
+-Display the database order by price
+SELECT * FROM etsy_store 
+ORDER BY price asc;
+
+
+-What is the average price of items in the Etsy store? 
+SELECT AVG(price)
+FROM etsy_store;
+
+
+-What are the 5 most popular items?
+SELECT name, price, rating 
+FROM etsy_store
+ORDER BY rating desc
+limit 5;
