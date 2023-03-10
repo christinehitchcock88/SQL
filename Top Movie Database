@@ -1,0 +1,24 @@
+Querying a database called topmovies, a database of the world's top grossing 100 movies
+
+-Top titles of movies that made over $500 million
+SELECT Title FROM topmovies
+WHERE Domestic >500.00;
+
+
+-Find out how many movies were "recent" and made after the year 2000.
+SELECT COUNT(*), 
+ 
+ CASE
+ WHEN Year>2000 THEN "recent"
+ WHEN Year<2000 THEN "older"
+ END AS "time_frame"  
+
+FROM topmovies;
+
+-Which studios made movies with worldwide gross profits over $300 million? 
+SELECT studio, AVG(Worldwide) AS "avg_gross"
+ FROM topmovies
+ GROUP BY studio
+ HAVING "avg_gross" >300.00
+ ORDER BY "avg_gross" desc;
+ 
